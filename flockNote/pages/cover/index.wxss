@@ -1,0 +1,50 @@
+/* pages/dairy/index.wxss */
+.login-cover,.share-cover, .note-list{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background:rgb(237, 225, 209);
+}
+/* .login-btn,.login-img{
+  transition: all 1s;
+} */
+.cover-img{
+  margin: 22% auto 38% auto;
+}
+.login-btn, .share-btn{
+  color: rgb(75,4,5);
+  border: solid 2px rgb(126, 48, 3);
+  outline: none;
+  background: rgba(0,0,0,0);
+  width: 55%;
+  line-height: inherit;
+  padding: 5px 0;
+}
+.share-cover .cover-img{
+  margin: 22% auto 10% auto;
+}
+
+.share-cover .head-img{
+  margin: 50rpx auto;
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 100%;
+}
+.my-cover{
+  height: 20%;
+  border: solid white 2px;
+}
+.my-cover-img{
+  height: 100%;
+  display: inline;
+}
+.note-list{
+
+}
+.my-cover .my-head{
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 100%;
+}

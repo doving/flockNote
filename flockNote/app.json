@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/cover/index",
+    "pages/content/index"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "群大事记",
+    "navigationBarTextStyle": "black"
+  }
+}

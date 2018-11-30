@@ -1,0 +1,48 @@
+{
+	"miniprogramRoot": "flockNote/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"appid": "wxc4251ae646b1179c",
+	"projectname": "dairy",
+	"libVersion": "2.2.5",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "打开群分享",
+					"pathName": "pages/cover/index",
+					"query": "",
+					"scene": "1044",
+					"shareInfo": {
+						"groupName": "测试模拟群1",
+						"shareName": "Btsm9E2s-kcznOpcFXUoZIh8G8t013dPksLWLY3wK4g@cr4dev",
+						"shareKey": "7TXRdQaVo20PWeEq_HYgEE2Tof1aXSZ0BT3Cgk9AunEPpcKVU0HQxvBUFZn9umoQh-saSfmCAd72GhIABUsxMg~~"
+					}
+				}
+			]
+		}
+	}
+}

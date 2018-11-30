@@ -1,0 +1,27 @@
+<view>
+  <!-- 已经登但非群中开启 -->
+  <view wx:if="{{userInfo.head}}">
+    <view wx:if="{{!userInfo.gid}}" class='share-cover'>
+      <image class='cover-img' mode='aspectFit' src='/images/cover.png'></image>
+      <image class='head-img' src="{{userInfo.head}}"></image>
+      <button 
+        wx:if="{{needShare}}"
+        class="share-btn"
+        open-type="share">
+        分享到群查看
+      </button>
+    </view>
+  </view>
+
+  <!-- 未登录展示日首页 -->
+  <view wx:else class='login-cover'>
+    <image class='cover-img' mode='aspectFit' src='/images/cover.png'></image>
+    <button 
+      wx:if="{{needLogin}}"
+      class="login-btn"
+      open-type="getUserInfo"
+      bindgetuserinfo="onGetUserinfo">
+      登录
+    </button>
+  </view>
+</view>

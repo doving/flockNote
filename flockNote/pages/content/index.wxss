@@ -1,0 +1,29 @@
+/* flockNote/pages/content/index.wxss */
+.content-main{
+  height: 100%;
+  background: rgb(237, 225, 209);
+}
+.my-cover{
+  display: flex;
+  position: relative;
+  border: solid 2px white;
+}
+.cover-img{
+  width: 375rpx;
+  height: 216rpx; 
+}
+.my-head{
+  position: absolute;
+  height: 100rpx;
+  width: 100rpx;
+  border: solid 6rpx white;
+  right: 20rpx;
+  bottom: -30rpx;
+}
+.my-name{
+  position: absolute;
+  font-weight: bold;
+  color: rgb(75,4,5);
+  right: 150rpx;
+  bottom: 15rpx;
+}
