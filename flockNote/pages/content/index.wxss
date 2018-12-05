@@ -1,4 +1,11 @@
 /* flockNote/pages/content/index.wxss */
+button{
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  border-radius: 0;
+}
 .content-main{
   height: 100%;
   background: rgb(237, 225, 209);
@@ -26,4 +33,47 @@
   color: rgb(75,4,5);
   right: 150rpx;
   bottom: 15rpx;
+}
+.note-list{
+  background: #fff;
+  margin: 10rpx auto;
+  padding: 10rpx;
+}
+.note-list .author-info, .note-list .operation{
+  font-size: 30rpx;
+  line-height: 50rpx;
+  color: #aaa;
+}
+.note-list .author-info .author-head{
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: middle;
+  border-radius: 100%;
+}
+.note-list .content{
+  display: block;
+  padding: 5rpx;
+  border-top: solid 1px #eee;
+  border-bottom: solid 1px #eee;
+}
+.note-list .operation{
+  display: flex;
+  justify-content: flex-end;
+}
+.note-list .operation button{
+  color: #aaa;
+  font-size: 30rpx;
+  outline: none;
+  border: none;
+  background: rgba(0,0,0,0);
+  margin: 0 0 0 15rpx ;
+  padding: 0;
+  line-height: inherit;
+}
+.add-note{
+  position: absolute;
+  border: none;
+  width: 100%;
+  padding: 10rpx 0;
+  bottom: 0;
 }

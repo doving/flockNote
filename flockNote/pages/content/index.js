@@ -1,15 +1,42 @@
 // flockNote/pages/content/index.js
 const regeneratorRuntime = global.regeneratorRuntime;
 const db = wx.cloud.database().collection('flockNotes');
+
+const timeFormat = function (sec) { //毫秒单位
+  let t = new Date(sec);
+
+  let y = t.getFullYear();
+
+  let m = t.getMonth() + 1;
+  m = m < 10 ? '0' + m : m;
+
+  let d = t.getDate();
+  d = d < 10 ? '0' + d : d;
+
+  let h = t.getHours();
+  h = h < 10 ? '0' + h : h;
+
+  let mi = t.getMinutes();
+  mi = mi < 10 ? '0' + mi : mi;
+
+  let s = t.getSeconds();
+  s = s < 10 ? '0' + s : s;
+
+  return `${y}-${m}-${d} ${h}:${mi}:${s}`;
+}
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    showTextarea: 0,
+    currentIndex: -1,
+    currentContent: '',
     userInfo: {},
     list: [
-      {author: 'xx1', authorHead: '', authOpenid: '', time: '', content: '搞事情'}
+      { author: 'xx1', authorHead: '', authOpenid: '', content: '搞事情', time: '', timestr: ''}
     ], //日记列表
   },
 
@@ -20,10 +47,12 @@ Page({
     this.setData({userInfo: global.userInfo});
     
     const {data: list = []} = await db.where({ gid: this.data.userInfo.gid}).get();
-    console.log(list, ' === list');
+    list.forEach(o => o.timestr = timeFormat(o.time));
     this.setData({
       list
     });
+
+    console.log(list);
   },
 
   async add(){
@@ -42,14 +71,33 @@ Page({
     console.log(r, ' add');
   },
 
-  del(i){
+  async del(e){
+    const {index} = e.currentTarget.dataset;
+    const id = this.data.list[index]._id;
 
+    const r = await db.doc(id).remove();
+
+    const list = [...this.data.list];
+    list.splice(index, 1);
+
+    this.setData({list});
   },
 
-  edit(i){
+  edit(e){
+    const { index } = e.currentTarget.dataset;
+    const current = this.data.list[index];
+    const id = current._id;
 
+    this.setData({
+      showTextarea: 1,
+      currentIndex: index,
+      currentContent: current.content
+    });
   },
 
+  clear(){
+    this.setData({currentContent: ''});
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

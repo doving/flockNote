@@ -6,12 +6,23 @@
     <text class='my-name'>{{userInfo.nickName}}</text>
   </view>
   <view>
-    <view wx:for="{{list}}" wx:key>
-      <text>{{item.author}}</text>于<text>{{item.time}}</text>记录
-      <text>{{item.content}}</text>
-      <button bindtap='del'>删除</button>
-      <button bindtap='edit'>修改</button>
+    <view class='note-list' wx:for="{{list}}" wx:key>
+      <view class='author-info'>
+        <image class='author-head' src='{{item.authorHead}}'></image>
+        <text>{{item.author}}</text>于<text>{{item.timestr}}</text>记录
+      </view>
+      <text class='content'>{{item.content}}</text>
+      <view class='operation' wx:if="{{userInfo.openid == item.authorOpenid}}">
+        <button data-index='{{index}}' bindtap='del'>删除</button>
+        <button data-index='{{index}}' bindtap="edit">修改</button>
+      </view>
     </view>
-    <button bindtap='add'>添加</button>
+    <button class='add-note' bindtap='add'>添加</button>
   </view>
+  <view wx:if="{{showTextarea}}" class='content-dialog'>
+    <textarea class="current-edit" placeholder="请输入要记录的内容" value='{{currentContent}}'></textarea>
+    <button bindtap='add'>确定</button>
+    <button bindtap='clear'>清空</button>
+  </view>
+  
 </view>
