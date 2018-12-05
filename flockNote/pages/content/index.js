@@ -2,36 +2,13 @@
 const regeneratorRuntime = global.regeneratorRuntime;
 const db = wx.cloud.database().collection('flockNotes');
 
-const timeFormat = function (sec) { //毫秒单位
-  let t = new Date(sec);
-
-  let y = t.getFullYear();
-
-  let m = t.getMonth() + 1;
-  m = m < 10 ? '0' + m : m;
-
-  let d = t.getDate();
-  d = d < 10 ? '0' + d : d;
-
-  let h = t.getHours();
-  h = h < 10 ? '0' + h : h;
-
-  let mi = t.getMinutes();
-  mi = mi < 10 ? '0' + mi : mi;
-
-  let s = t.getSeconds();
-  s = s < 10 ? '0' + s : s;
-
-  return `${y}-${m}-${d} ${h}:${mi}:${s}`;
-}
-
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    showTextarea: 0,
+    showInput: 0,
     currentIndex: -1,
     currentContent: '',
     userInfo: {},
@@ -47,7 +24,7 @@ Page({
     this.setData({userInfo: global.userInfo});
     
     const {data: list = []} = await db.where({ gid: this.data.userInfo.gid}).get();
-    list.forEach(o => o.timestr = timeFormat(o.time));
+
     this.setData({
       list
     });
@@ -55,20 +32,33 @@ Page({
     console.log(list);
   },
 
-  async add(){
-    const {nickName: author, head: authorHead, openid: authorOpenid, gid} = this.data.userInfo
-    const r = await db.add({
-      data: {
-        author,
-        authorHead,
-        authorOpenid,
-        gid,
-        content: 'this is contet',
-        time: Date.now()
-      }
-    });
+  showAdd(){
+    this.setData({ showInput: true, currentIndex: -1 });
+  },
 
-    console.log(r, ' add');
+  //编辑内容后确定，添加 or 修改 通用
+  async confirm(e){
+    const {value: content} = e.detail;
+    const {currentIndex} = this.data;
+    let list = [...this.data.list];
+    //修改
+    if(currentIndex > -1){
+      const id = this.data.list[currentIndex]._id;
+
+      await db.doc(id).update({data: {content}});
+
+      list[currentIndex].content = content;
+    //添加
+    }else{
+      const { nickName: author, head: authorHead, openid: authorOpenid, gid } = this.data.userInfo;
+      const data = {author, authorHead, authorOpenid, gid, content, time: Date.now()}
+
+      await db.add({data});
+
+      list.push(data);
+    }
+
+    this.setData({ list, showInput: false });
   },
 
   async del(e){
@@ -83,15 +73,10 @@ Page({
     this.setData({list});
   },
 
-  edit(e){
-    const { index } = e.currentTarget.dataset;
-    const current = this.data.list[index];
-    const id = current._id;
-
+  showEdit(e){
+    const { index: currentIndex } = e.currentTarget.dataset;
     this.setData({
-      showTextarea: 1,
-      currentIndex: index,
-      currentContent: current.content
+      showInput: true, currentIndex
     });
   },
 

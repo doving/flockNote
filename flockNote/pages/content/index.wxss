@@ -8,12 +8,13 @@ button{
 }
 .content-main{
   height: 100%;
-  background: rgb(237, 225, 209);
+
 }
 .my-cover{
   display: flex;
   position: relative;
-  border: solid 2px white;
+
+  background: rgb(237,225,209);
 }
 .cover-img{
   width: 375rpx;
@@ -23,7 +24,7 @@ button{
   position: absolute;
   height: 100rpx;
   width: 100rpx;
-  border: solid 6rpx white;
+  border: solid 4rpx white;
   right: 20rpx;
   bottom: -30rpx;
 }
@@ -36,44 +37,54 @@ button{
 }
 .note-list{
   background: #fff;
-  margin: 10rpx auto;
+  border-bottom: solid 0.5px #eee;
   padding: 10rpx;
 }
 .note-list .author-info, .note-list .operation{
-  font-size: 30rpx;
+  font-size: 26rpx;
   line-height: 50rpx;
   color: #aaa;
+  padding: 10rpx;
 }
 .note-list .author-info .author-head{
   width: 50rpx;
   height: 50rpx;
   vertical-align: middle;
   border-radius: 100%;
+  border: none;
+  margin-top: -4rpx;
 }
 .note-list .content{
+  padding: 8rpx;
+  font-size: 28rpx;
   display: block;
-  padding: 5rpx;
-  border-top: solid 1px #eee;
-  border-bottom: solid 1px #eee;
+  border-top: dashed 0.2px #eee;
 }
 .note-list .operation{
   display: flex;
   justify-content: flex-end;
+  border-top: dashed .2px #eee;
 }
 .note-list .operation button{
   color: #aaa;
-  font-size: 30rpx;
   outline: none;
   border: none;
   background: rgba(0,0,0,0);
   margin: 0 0 0 15rpx ;
   padding: 0;
+  font-size: 26rpx;
+  border-radius: 0;
   line-height: inherit;
 }
 .add-note{
+  color: #fff;
   position: absolute;
   border: none;
   width: 100%;
-  padding: 10rpx 0;
+  padding: 18rpx 0;
   bottom: 0;
+  font-size: 30rpx;
+  line-height: inherit;
+  border-radius: 0;
+  background: rgba(75,4,5, 0.7);
 }
