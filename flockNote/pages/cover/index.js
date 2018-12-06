@@ -20,7 +20,7 @@ Page({
     return {
       title: '快来看看我们群的大事记',
       path: '/pages/cover/index',
-      imageUrl: ''
+      imageUrl: global.shareImg
     }
   },
 
@@ -31,7 +31,11 @@ Page({
       complete(r) {
         res(r.result);
       }
-    })
+    });
+
+    wx.showShareMenu({
+      withShareTicket: true
+    });
   }),
 
   getLoginData: async () => new Promise(res => {
