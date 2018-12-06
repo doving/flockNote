@@ -62,15 +62,30 @@ Page({
   },
 
   async del(e){
-    const {index} = e.currentTarget.dataset;
-    const id = this.data.list[index]._id;
+    wx.showModal({
+      title: '提示',
+      content: '确定删除吗？',
+      success: async res => {
+        if(res.cancel)return; //取消删除，什么也不做
 
-    const r = await db.doc(id).remove();
+        const { index } = e.currentTarget.dataset;
+        const id = this.data.list[index]._id;
 
-    const list = [...this.data.list];
-    list.splice(index, 1);
+        const r = await db.doc(id).remove();
 
-    this.setData({list});
+        const list = [...this.data.list];
+        list.splice(index, 1);
+
+        this.setData({ list });
+
+        wx.showToast({
+          title: '删除成功',
+          icon: 'success',
+          duration: 1500
+        })
+      }
+    });
+    
   },
 
   showEdit(e){
@@ -80,8 +95,8 @@ Page({
     });
   },
 
-  clear(){
-    this.setData({currentContent: ''});
+  inputBlur(){
+    this.setData({showInput: false});
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

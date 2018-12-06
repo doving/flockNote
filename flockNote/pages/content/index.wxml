@@ -34,7 +34,9 @@
     <view class='note-list' wx:for="{{list}}" wx:key>
       <view class='author-info'>
         <image class='author-head' src='{{item.authorHead}}'></image>
-        <text>{{item.author}}</text>于<text>{{utils.timeFormat(item.time)}}</text>记录
+        <text class='item-nickname'>{{item.author}}</text>
+        记录于
+        <text class='item-time'>{{utils.timeFormat(item.time)}}</text>
       </view>
       <text class='content'>{{item.content}}</text>
       <view class='operation' wx:if="{{userInfo.openid == item.authorOpenid}}">
@@ -42,17 +44,19 @@
         <button data-index='{{index}}' bindtap="showEdit">修改</button>
       </view>
     </view>
-    <button class='add-note' bindtap='showAdd'>添加</button>
+    <button class='add-note' hover-class='add-note-hover' bindtap='showAdd'>添加</button>
   </view>
-  <view wx:if="{{showInput}}" class='content-dialog'>
-    <input 
-    show-confirm-bar 
+  <view wx:if="{{showInput}}" class='input-dialog'>
+    <textarea
     auto-focus 
+    auto-height
     class="current-edit" 
     placeholder="请输入要记录的内容" 
+    placeholder-class='placeholder-style'
     value='{{list[currentIndex] && list[currentIndex].content}}'
     bindconfirm='confirm'
-    ></input>
+    bindblur='inputBlur'
+    ></textarea>
   </view>
   
 </view>

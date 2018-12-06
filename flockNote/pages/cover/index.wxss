@@ -1,4 +1,7 @@
 /* pages/dairy/index.wxss */
+button::after{
+  border: none;
+}
 .login-cover,.share-cover, .note-list{
   position: absolute;
   display: flex;
