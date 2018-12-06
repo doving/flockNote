@@ -13,8 +13,16 @@ Page({
     currentContent: '',
     userInfo: {},
     list: [
-      { author: 'xx1', authorHead: '', authOpenid: '', content: '搞事情', time: '', timestr: ''}
+      // { author: 'xx1', authorHead: '', authOpenid: '', content: '搞事情', time: '', timestr: ''}
     ], //日记列表
+  },
+
+  onShareAppMessage: function (o) {
+    return {
+      title: '快来看看我们群的大事记',
+      path: '/pages/cover/index',
+      imageUrl: ''
+    }
   },
 
   /**
@@ -59,6 +67,12 @@ Page({
     }
 
     this.setData({ list, showInput: false });
+
+    wx.showToast({
+      title: currentIndex > -1 ? '修改成功' : '添加成功',
+      icon: 'success',
+      duration: 1500
+    })
   },
 
   async del(e){
@@ -139,11 +153,4 @@ Page({
   onReachBottom: function () {
 
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

@@ -11,7 +11,7 @@ button::after{
 }
 .content-main{
   height: 100%;
-  padding-bottom: 50rpx;
+  padding-bottom: 80rpx;
 }
 .my-cover{
   display: flex;
@@ -44,9 +44,9 @@ button::after{
   padding: 16rpx;
 }
 .note-list .author-info, .note-list .operation{
-  font-size: 26rpx;
+  font-size: 28rpx;
   line-height: 50rpx;
-  color: #aaa;
+  color: #999;
   padding: 10rpx;
 }
 .note-list .author-info .author-head{
@@ -60,7 +60,7 @@ button::after{
 .note-list .content{
   padding: 10rpx 0;
   margin: 8rpx 8rpx 8rpx 64rpx;
-  font-size: 28rpx;
+  font-size: 32rpx;
   display: block;
   border-top: dashed 1rpx rgb(246, 246, 246);
 }
@@ -72,13 +72,13 @@ button::after{
   border-top: dashed 1rpx rgb(246, 246, 246);
 }
 .note-list .operation button{
-  color: #aaa;
+  color: #999;
   outline: none;
   border: none;
   background: rgba(0,0,0,0);
-  margin: 0 0 0 15rpx ;
+  margin: 0 0 0 18rpx ;
   padding: 0;
-  font-size: 24rpx;
+  font-size: 26rpx;
   line-height: inherit;
 }
 .note-list .item-time, .note-list .item-nickname{
@@ -90,9 +90,9 @@ button::after{
   position: fixed;
   border: none;
   width: 100%;
-  padding: 18rpx 0;
+  padding: 20rpx 0;
   bottom: 0;
-  font-size: 30rpx;
+  font-size: 32rpx;
   line-height: inherit;
   border-radius: 0;
   background: rgb(129,79,80);
@@ -109,10 +109,10 @@ button::after{
   background: rgb(245,245,245);
   border-top: solid 1rpx #ccc;
   border-bottom: solid 1rpx #ccc;
-  font-size: 26rpx;
-  padding: 16rpx;
+  padding: 26rpx;
+  font-size: 30rpx;
 }
 .placeholder-style{
   color: #aaa;
-  font-size: 24rpx;
+  font-size: 28rpx;
 }

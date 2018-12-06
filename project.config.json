@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": 0,
@@ -40,6 +40,18 @@
 						"groupName": "测试模拟群1",
 						"shareName": "Btsm9E2s-kcznOpcFXUoZIh8G8t013dPksLWLY3wK4g@cr4dev",
 						"shareKey": "7TXRdQaVo20PWeEq_HYgEE2Tof1aXSZ0BT3Cgk9AunEPpcKVU0HQxvBUFZn9umoQh-saSfmCAd72GhIABUsxMg~~"
+					}
+				},
+				{
+					"id": -1,
+					"name": "打开群分享",
+					"pathName": "pages/cover/index",
+					"query": "",
+					"scene": "1044",
+					"shareInfo": {
+						"groupName": "测试模拟群1",
+						"shareName": "Btsm9E2s-kcznOpcFXUoZIh8G8t013dPksLWLY3wK4g@cr4dev",
+						"shareKey": "XylxDqwfzcrBfmKkrq_5aLwmU3E-39YcEMzDgvCjyuPcq3k4sd42gut-xx8inzCcwqaHz1TgY0iKqu4G9lM2nA~~"
 					}
 				}
 			]

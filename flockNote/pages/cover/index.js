@@ -16,6 +16,13 @@ Page({
       gid: ''
     }
   },
+  onShareAppMessage: function (o) {
+    return {
+      title: '快来看看我们群的大事记',
+      path: '/pages/cover/index',
+      imageUrl: ''
+    }
+  },
 
   login: async data => new Promise(res => {
     wx.cloud.callFunction({
@@ -116,13 +123,14 @@ Page({
   },
 
   //监听页面分享事件
-  onShareAppMessage(o){
-    return {
-      title: '我们的群原来发生过这么多大事呀',
-      path: '/page/index',
-      imageUrl: 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLXgbtyIzFqoLI8K3q3iaHSGkTq4Z8HU2a7YzgfliaQ6P3icZ4lkziayB7d9ENkHENFic8EuHE0IiaJ9mhw/132'
-    }
-  },
+  // onShareAppMessage(o){
+  //   console.log(o, '========================');
+  //   return {
+  //     title: '我们的群原来发生过这么多大事呀',
+  //     path: '/page/index',
+  //     imageUrl: 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLXgbtyIzFqoLI8K3q3iaHSGkTq4Z8HU2a7YzgfliaQ6P3icZ4lkziayB7d9ENkHENFic8EuHE0IiaJ9mhw/132'
+  //   }
+  // },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -166,10 +174,10 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+  // /**
+  //  * 用户点击右上角分享
+  //  */
+  // onShareAppMessage: function () {
 
-  }
+  // }
 })
